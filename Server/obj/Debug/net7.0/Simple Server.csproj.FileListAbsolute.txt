@@ -1,0 +1,63 @@
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.deps.json
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.runtimeconfig.json
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.pdb
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.AssemblyReference.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.GeneratedMSBuildEditorConfig.editorconfig
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.AssemblyInfoInputs.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.AssemblyInfo.cs
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.CoreCompileInputs.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/refint/Simple Server.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.pdb
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.genruntimeconfig.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/ref/Simple Server.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Zenject-Signals.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Zenject-usage.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/bin/Debug/net7.0/Zenject.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.CopyComplete
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.deps.json
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.runtimeconfig.json
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.pdb
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Zenject-Signals.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Zenject-usage.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Zenject.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.AssemblyReference.cache
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.GeneratedMSBuildEditorConfig.editorconfig
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.AssemblyInfoInputs.cache
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.AssemblyInfo.cs
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.CoreCompileInputs.cache
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.CopyComplete
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/refint/Simple Server.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.pdb
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.genruntimeconfig.cache
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/obj/Debug/net7.0/ref/Simple Server.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Newtonsoft.Json.pdb
+/Users/starkre/Desktop/Repository-Server/Simple Server/Simple Server/bin/Debug/net7.0/Newtonsoft.Json.xml
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.deps.json
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.runtimeconfig.json
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Simple Server.pdb
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Zenject-Signals.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Zenject-usage.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Zenject.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Newtonsoft.Json.pdb
+/Users/starkre/Desktop/Simple Server/Simple Server/bin/Debug/net7.0/Newtonsoft.Json.xml
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.AssemblyReference.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.GeneratedMSBuildEditorConfig.editorconfig
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.AssemblyInfoInputs.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.AssemblyInfo.cs
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.CoreCompileInputs.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.csproj.CopyComplete
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/refint/Simple Server.dll
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.pdb
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/Simple Server.genruntimeconfig.cache
+/Users/starkre/Desktop/Simple Server/Simple Server/obj/Debug/net7.0/ref/Simple Server.dll
