@@ -1,3 +1,4 @@
+using ModestTree;
 using Zenject;
 
 public sealed class RepositoryInstaller : Installer
@@ -7,7 +8,7 @@ public sealed class RepositoryInstaller : Installer
     public override void InstallBindings()
     {
         string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FILE_NAME);
-        
+        Console.Write(AppDomain.CurrentDomain.BaseDirectory);
         this.Container
             .Bind<Repository>()
             .AsSingle()
