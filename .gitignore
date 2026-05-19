@@ -1,0 +1,95 @@
+# ==========================================================
+# .gitignore для МОНОРЕПО:  Client/ (Unity)  +  Server/ (.NET)
+# Лежит в КОРНЕ репозитория.
+#
+# ВАЖНО: никаких глобальных масок вида *.dll / *.csproj —
+# в Unity DLL внутри Assets/ это часть проекта (плагины),
+# а у .NET-сервера .csproj/.sln это исходники. Правила
+# привязаны к конкретным папкам.
+# ==========================================================
+
+# ----------------------------------------------------------
+# UNITY-КЛИЕНТ  (папка Client/)
+# ----------------------------------------------------------
+# Генерируемые Unity папки
+/Client/[Ll]ibrary/
+/Client/[Tt]emp/
+/Client/[Oo]bj/
+/Client/[Bb]uild/
+/Client/[Bb]uilds/
+/Client/[Ll]ogs/
+/Client/[Uu]ser[Ss]ettings/
+/Client/[Mm]emoryCaptures/
+/Client/[Rr]ecordings/
+
+# Unity-генерируемые проектные файлы — ТОЛЬКО в корне Client/
+# (не трогает .csproj внутри Assets/Plugins, напр. Zenject)
+/Client/*.csproj
+/Client/*.unityproj
+/Client/*.sln
+/Client/*.sln.DotSettings.user
+/Client/*.user
+/Client/*.userprefs
+/Client/*.pidb
+/Client/*.booproj
+/Client/*.svd
+/Client/*.opendb
+/Client/*.VC.db
+
+# Билды клиента
+/Client/*.apk
+/Client/*.aab
+/Client/*.app
+/Client/*.exe
+/Client/ExportedObj/
+/Client/.consulo/
+/Client/crashlytics-build.properties
+/Client/sysinfo.txt
+
+# ВНИМАНИЕ: всё в Client/Assets/** и Client/Packages/**
+# (DLL плагинов, .unitypackage, Sirenix/Odin, Zenject,
+#  Newtonsoft и т.п.) НАМЕРЕННО НЕ игнорируется — это
+# обязательные файлы проекта.
+
+# ----------------------------------------------------------
+# .NET-СЕРВЕР  (папка Server/)
+# ----------------------------------------------------------
+# Артефакты сборки (csproj/sln НЕ трогаем — это исходники!)
+/Server/bin/
+/Server/obj/
+/Server/[Oo]ut/
+/Server/**/[Dd]ebug/
+/Server/**/[Rr]elease/
+
+# Пользовательские файлы IDE
+/Server/*.sln.DotSettings.user
+/Server/*.user
+/Server/*.suo
+
+# ----------------------------------------------------------
+# IDE / РЕДАКТОРЫ  (везде)
+# ----------------------------------------------------------
+.idea/
+.vs/
+.vscode/
+
+# ----------------------------------------------------------
+# ОС  (везде)
+# ----------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# Linux
+*~
+.directory
+

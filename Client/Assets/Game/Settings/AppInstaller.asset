@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4baa327aacea4a2cb8ddef2b409a5237, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a4554b5d1044e109decae9af5dd98b5, type: 3}
   m_Name: AppInstaller
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::System.Runtime.CompilerServices.Domain.App.AppInstaller
+  _repositoryInstaller:
+    _uri: http://127.0.0.1:8888
