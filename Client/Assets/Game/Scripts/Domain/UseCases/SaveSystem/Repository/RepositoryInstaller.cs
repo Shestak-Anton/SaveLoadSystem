@@ -7,8 +7,7 @@ namespace UseCases.Repository
     [Serializable]
     public sealed class RepositoryInstaller : Installer
     {
-        [SerializeField]
-        private string _uri = "http://127.0.0.1:8888";
+        [SerializeField] private string _uri = "http://127.0.0.1:8888";
 
         public override void InstallBindings()
         {
@@ -16,6 +15,8 @@ namespace UseCases.Repository
                 .BindInterfacesAndSelfTo<RemoteRepository>()
                 .AsSingle()
                 .WithArguments(_uri);
+            
+            Container.Decorate<IRepository>().With<CacheVersionRepository>();
         }
     }
 }

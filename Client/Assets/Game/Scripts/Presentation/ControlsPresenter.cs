@@ -19,8 +19,16 @@ namespace Game.Gameplay
         void IControlsPresenter.Save(Action<bool, int> callback) =>
             SaveInternal(callback).Forget();
 
-        void IControlsPresenter.Load(string version, Action<bool, int> callback) =>
-            LoadInternal(version, callback).Forget();
+        void IControlsPresenter.Load(string version, Action<bool, int> callback)
+        {
+            try
+            {
+                LoadInternal(int.Parse(version), callback).Forget();
+            }
+            catch (Exception)
+            {
+            }
+        }
 
         private async UniTaskVoid SaveInternal(Action<bool, int> callback)
         {
@@ -30,7 +38,7 @@ namespace Game.Gameplay
                 token.ThrowIfCancellationRequested();
                 var result = await _saveManager.Save(token);
                 token.ThrowIfCancellationRequested();
-                callback?.Invoke(result, 1);
+                callback?.Invoke(result.Success, result.Version);
             }
             catch (OperationCanceledException)
             {
@@ -42,7 +50,7 @@ namespace Game.Gameplay
             }
         }
 
-        private async UniTaskVoid LoadInternal(string version, Action<bool, int> callback)
+        private async UniTaskVoid LoadInternal(int version, Action<bool, int> callback)
         {
             var token = _cts.Token;
             try
@@ -50,9 +58,15 @@ namespace Game.Gameplay
                 token.ThrowIfCancellationRequested();
 
                 var result = await _saveManager.Load(version, token);
-
                 token.ThrowIfCancellationRequested();
-                // callback?.Invoke(true, result);
+                if (result.Success)
+                {
+                    callback?.Invoke(true, version);
+                }
+                else
+                {
+                    throw new Exception("Load fail");
+                }
             }
             catch (OperationCanceledException)
             {

@@ -6,7 +6,7 @@ namespace UseCases.Repository
 {
     public interface IRepository
     {
-        UniTask<bool> Save(JObject data, CancellationToken cancellationToken = default);
-        UniTask<DataResponse> Load(CancellationToken cancellationToken = default);
+        UniTask<SaveResult> Save(JObject data, CancellationToken cancellationToken = default);
+        UniTask<LoadResult> Load(int version, CancellationToken cancellationToken = default);
     }
 }

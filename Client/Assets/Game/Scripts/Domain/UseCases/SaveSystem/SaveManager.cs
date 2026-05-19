@@ -19,7 +19,7 @@ namespace SaveSystem
             _repository = repository;
         }
 
-        public async UniTask<bool> Save(CancellationToken ct = default)
+        public async UniTask<SaveResult> Save(CancellationToken ct = default)
         {
             var gameData = new JObject();
             foreach (var saveSerializer in _saveSerializers)
@@ -27,18 +27,18 @@ namespace SaveSystem
             return await _repository.Save(gameData, ct);
         }
 
-        public async UniTask<bool> Load(string version, CancellationToken ct = default)
+        public async UniTask<LoadResult> Load(int version, CancellationToken ct = default)
         {
-            var savedData = await _repository.Load(ct);
-            if (!savedData.Success) return false;
+            var loadResult = await _repository.Load(version, ct);
+            if (!loadResult.Success) return loadResult;
 
             foreach (var saveSerializer in _saveSerializers)
             {
-                if (savedData.Data.TryGetValue(saveSerializer.Key, out var value))
+                if (loadResult.Data.TryGetValue(saveSerializer.Key, out var value))
                     saveSerializer.Deserialize(value);
             }
 
-            return true;
+            return loadResult;
         }
     }
 }
