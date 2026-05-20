@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
@@ -25,7 +26,14 @@ namespace Game.Gameplay.SaveLoad
             if (!parent.TryGetComponent<T>(out var component)) return;
             if (data.TryGetValue(NodeKey, out var nodeValue) && nodeValue is JObject node)
             {
-                DoOnDeserialize(component, node);
+                try
+                {
+                    DoOnDeserialize(component, node);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Exception while reading node for component: {parent.name}" );
+                }
             }
         }
 

@@ -7,8 +7,8 @@ namespace Game.Gameplay.SaveLoad
 {
     public sealed class ProductOrderSerializer : ComponentSerializer<ProductionOrder>
     {
-        protected override string NodeKey => "ProductOrder";
-        
+        protected override string NodeKey => "productOrder";
+
         private readonly EntityCatalog _entityCatalog;
 
         public ProductOrderSerializer(EntityCatalog entityCatalog)
@@ -18,7 +18,7 @@ namespace Game.Gameplay.SaveLoad
 
         protected override JObject DoOnSerialize(ProductionOrder component)
         {
-            var result = new  JObject();
+            var result = new JObject();
             var list = new JArray();
             result["productionOrders"] = list;
             foreach (var entityConfig in component.Queue)
@@ -31,6 +31,7 @@ namespace Game.Gameplay.SaveLoad
                 };
                 list.Add(item);
             }
+
             return result;
         }
 
@@ -41,12 +42,17 @@ namespace Game.Gameplay.SaveLoad
             var configs = new List<EntityConfig>();
             foreach (var item in array.Values())
             {
-                var name = item["name"];
-                if (_entityCatalog.FindConfig(name.ToString(), out var config))
+                try
                 {
-                    configs.Add(config);
+                    if (_entityCatalog.FindConfig(item.Value<string>("name"), out var config))
+                        configs.Add(config);
+                }
+                catch
+                {
+                    // ignore
                 }
             }
+
             component.Queue = configs;
         }
     }

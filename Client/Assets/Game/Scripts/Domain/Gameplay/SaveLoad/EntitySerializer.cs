@@ -1,9 +1,8 @@
 using System.Linq;
 using Modules.Entities;
 using Newtonsoft.Json.Linq;
+using SampleGame.Common;
 using SaveSystem;
-using Unity.VisualScripting;
-using UnityEngine;
 
 namespace Game.Gameplay.SaveLoad
 {
@@ -27,9 +26,15 @@ namespace Game.Gameplay.SaveLoad
             var result = new JArray();
             foreach (var entity in _entityWorld.GetAll())
             {
-                var converted = Convert(entity);
-                if (converted.Count == 0) continue;
-                result.Add(converted);
+                var entityJObject = Serialize(entity);
+                foreach (var componentSerializer in _componentSerializers)
+                {
+                    if (!componentSerializer.TrySerialize(entity, out var data)) continue;
+                    entityJObject.Merge(data);
+                }
+
+                if (entityJObject.Count == 0) continue;
+                result.Add(entityJObject);
             }
 
             return result;
@@ -37,52 +42,48 @@ namespace Game.Gameplay.SaveLoad
 
         public void Deserialize(JToken data)
         {
+            _entityWorld.DestroyAll();
             foreach (var root in data.OfType<JObject>())
             {
-                var entity = Convert(root);
+                var rootData = Deserialize(root);
+                var entity = SpawnEntity(rootData);
+                foreach (var componentSerializer in _componentSerializers)
+                {
+                    componentSerializer.Deserialize(entity, root);
+                }
             }
         }
 
-        private JObject Convert(Entity entity)
+        private static JObject Serialize(Entity entity)
         {
-            var result = new JObject
+            return new JObject
             {
-                ["Id"] = entity.Id,
-                ["Name"] = entity.Name,
-                ["Type"] = (int)entity.Type
+                ["id"] = entity.Id,
+                ["name"] = entity.Name,
+                ["type"] = (int)entity.Type,
+                ["position"] = JObject.FromObject(new SerializedVector3(entity.transform.position)),
+                ["rotation"] = JObject.FromObject(new SerializedVector3(entity.transform.rotation.eulerAngles)),
             };
-
-            foreach (var componentSerializer in _componentSerializers)
-            {
-                if (!componentSerializer.TrySerialize(entity, out var data)) continue;
-                result.Merge(data);
-            }
-
-            return result;
         }
 
-        private Entity Convert(JObject root)
+        private EntityRootData Deserialize(JObject root)
         {
-            var id = root.Value<int>("Id");
-            var name = root.Value<string>("Name");
-
-            Entity entity;
-            if (_entityWorld.TryGet(id, out var e))
-            {
-                entity = e;
-            }
-            else
-            {
-                entity = _entityWorld.Spawn(name, Vector3.zero, Quaternion.Euler(Vector3.zero), id);
-                _entityWorld.Add(entity, entity.Id);
-            }
-
-            foreach (var componentSerializer in _componentSerializers)
-            {
-                componentSerializer.Deserialize(entity, root);
-            }
-
-            return entity;
+            return new EntityRootData(
+                Id: root.Value<int>("id"),
+                Name: root.Value<string>("name"),
+                Position: root["position"].ToObject<SerializedVector3>(),
+                Rotation: root["rotation"].ToObject<SerializedVector3>()
+            );
         }
+
+        private Entity SpawnEntity(EntityRootData entity) =>
+            _entityWorld.Spawn(entity.Name, entity.Position, entity.Rotation, entity.Id);
+
+        private record EntityRootData(
+            int Id,
+            string Name,
+            SerializedVector3 Position,
+            SerializedVector3 Rotation
+        );
     }
 }

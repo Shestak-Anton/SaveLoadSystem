@@ -6,7 +6,7 @@ namespace Game.Gameplay.SaveLoad
 {
     public sealed class ResourceBagSerializer : ComponentSerializer<ResourceBag>
     {
-        protected override string NodeKey => "ResourceBag";
+        protected override string NodeKey => "resourceBag";
 
         protected override JObject DoOnSerialize(ResourceBag component) => new()
         {
@@ -16,8 +16,8 @@ namespace Game.Gameplay.SaveLoad
 
         protected override void DoOnDeserialize(ResourceBag component, JObject data)
         {
-            component.Current = int.Parse(data["current"].ToString());
-            component.Type = (ResourceType)int.Parse(data["type"].ToString());
+            component.Current = data.Value<int>("current");
+            component.Type = (ResourceType)data.Value<int>("type");
         }
     }
 }

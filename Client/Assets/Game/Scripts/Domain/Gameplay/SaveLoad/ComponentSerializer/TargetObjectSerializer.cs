@@ -6,8 +6,8 @@ namespace Game.Gameplay.SaveLoad
 {
     public sealed class TargetObjectSerializer : ComponentSerializer<TargetObject>
     {
-        protected override string NodeKey => "TargetObject";
-        
+        protected override string NodeKey => "targetObject";
+
         private readonly EntityWorld _entityWorld;
 
         public TargetObjectSerializer(EntityWorld entityWorld)
@@ -22,11 +22,8 @@ namespace Game.Gameplay.SaveLoad
 
         protected override void DoOnDeserialize(TargetObject component, JObject data)
         {
-            var id = int.Parse(data["id"].ToString());
-            if (_entityWorld.TryGet(id, out var entity))
-            {
+            if (_entityWorld.TryGet(data.Value<int>("id"), out var entity))
                 component.Value = entity;
-            }
         }
     }
 }
