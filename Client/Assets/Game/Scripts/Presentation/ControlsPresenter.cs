@@ -35,13 +35,13 @@ namespace Game.Gameplay
             var token = _cts.Token;
             try
             {
-                token.ThrowIfCancellationRequested();
                 var result = await _saveManager.Save(token);
-                token.ThrowIfCancellationRequested();
                 callback?.Invoke(result.Success, result.Version);
             }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException e)
             {
+                Debug.LogException(e);
+                callback?.Invoke(false, 0);
             }
             catch (Exception e)
             {
@@ -68,8 +68,10 @@ namespace Game.Gameplay
                     throw new Exception("Load fail");
                 }
             }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException e)
             {
+                Debug.LogException(e);
+                callback?.Invoke(false, 0);
             }
             catch (Exception e)
             {

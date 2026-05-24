@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Modules.Entities;
 using Newtonsoft.Json.Linq;
@@ -29,8 +30,8 @@ namespace Game.Gameplay.SaveLoad
                 var entityJObject = Serialize(entity);
                 foreach (var componentSerializer in _componentSerializers)
                 {
-                    if (!componentSerializer.TrySerialize(entity, out var data)) continue;
-                    entityJObject.Merge(data);
+                    if (!componentSerializer.TrySerialize(entity, out var key, out var data)) continue;
+                    entityJObject.Add(key, data);
                 }
 
                 if (entityJObject.Count == 0) continue;
@@ -43,13 +44,21 @@ namespace Game.Gameplay.SaveLoad
         public void Deserialize(JToken data)
         {
             _entityWorld.DestroyAll();
+
+            var result = new Dictionary<Entity, JObject>();
+
             foreach (var root in data.OfType<JObject>())
             {
                 var rootData = Deserialize(root);
                 var entity = SpawnEntity(rootData);
+                result.Add(entity, root);
+            }
+
+            foreach (var (entity, rootData) in result)
+            {
                 foreach (var componentSerializer in _componentSerializers)
                 {
-                    componentSerializer.Deserialize(entity, root);
+                    componentSerializer.Deserialize(entity, rootData);
                 }
             }
         }

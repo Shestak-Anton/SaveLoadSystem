@@ -1,12 +1,20 @@
+using System;
 using System.Collections.Generic;
 using Modules.Entities;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using SampleGame.Gameplay;
 
 namespace Game.Gameplay.SaveLoad
 {
-    public sealed class ProductOrderSerializer : ComponentSerializer<ProductionOrder>
+    public sealed class ProductOrderSerializer : ComponentSerializer<ProductionOrder, ProductOrderSerializer.Data[]>
     {
+        [Serializable]
+        public record Data(
+            [property: JsonProperty("name")] string Name,
+            [property: JsonProperty("type")] EntityType Type,
+            [property: JsonProperty("size")] float Size
+        );
+
         protected override string NodeKey => "productOrder";
 
         private readonly EntityCatalog _entityCatalog;
@@ -16,43 +24,34 @@ namespace Game.Gameplay.SaveLoad
             _entityCatalog = entityCatalog;
         }
 
-        protected override JObject DoOnSerialize(ProductionOrder component)
+        protected override Data[] DoOnSerialize(ProductionOrder component)
         {
-            var result = new JObject();
-            var list = new JArray();
-            result["productionOrders"] = list;
-            foreach (var entityConfig in component.Queue)
+            var configs = component.Queue;
+            var data = new Data[configs.Count];
+            for (var index = 0; index < configs.Count; index++)
             {
-                var item = new JObject
-                {
-                    ["name"] = entityConfig.Name,
-                    ["type"] = (int)entityConfig.Type,
-                    ["size"] = entityConfig.Size
-                };
-                list.Add(item);
+                var config = configs[index];
+                data[index] = new Data(
+                    Name: config.Name,
+                    Type: config.Type,
+                    Size: config.Size
+                );
             }
 
-            return result;
+            return data;
         }
 
-        protected override void DoOnDeserialize(ProductionOrder component, JObject data)
+        protected override void DoOnDeserialize(ProductionOrder component, Data[] data)
         {
-            if (!data.TryGetValue("productionOrders", out var array)) return;
-            if (!array.HasValues) return;
             var configs = new List<EntityConfig>();
-            foreach (var item in array.Values())
+            foreach (var rawConfig in data)
             {
-                try
+                if (_entityCatalog.FindConfig(rawConfig.Name, out var config))
                 {
-                    if (_entityCatalog.FindConfig(item.Value<string>("name"), out var config))
-                        configs.Add(config);
-                }
-                catch
-                {
-                    // ignore
+                    configs.Add(config);
                 }
             }
-
+            
             component.Queue = configs;
         }
     }

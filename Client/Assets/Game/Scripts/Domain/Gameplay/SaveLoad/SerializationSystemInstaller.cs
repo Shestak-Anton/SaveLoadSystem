@@ -27,10 +27,10 @@ namespace Game.Gameplay.SaveLoad
                 .BindInterfacesAndSelfTo<ResourceBagSerializer>()
                 .AsSingle();
             Container
-                .BindInterfacesAndSelfTo<TargetObjectSerializer>()
+                .BindInterfacesAndSelfTo<TeamSerializer>()
                 .AsSingle();
             Container
-                .BindInterfacesAndSelfTo<TeamSerializer>()
+                .BindInterfacesAndSelfTo<TargetObjectSerializer>()
                 .AsSingle();
         }
     }
