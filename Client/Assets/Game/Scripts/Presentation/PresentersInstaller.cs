@@ -1,10 +1,13 @@
-using System;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Gameplay
 {
-    [Serializable]
-    public class PresentersInstaller : Installer
+    [CreateAssetMenu(
+        fileName = "PresenterInstaller",
+        menuName = "Zenject/New PresenterInstaller"
+    )]
+    public class PresentersInstaller : ScriptableObjectInstaller
     {
         public override void InstallBindings()
         {

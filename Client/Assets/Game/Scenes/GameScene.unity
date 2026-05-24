@@ -464,6 +464,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7013338918631047901, guid: 6a4b1a954f66d403995c53b9cbc10e69, type: 3}
   m_PrefabInstance: {fileID: 9052763697652214355}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &467368570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -3767939939581591271, guid: 6a4b1a954f66d403995c53b9cbc10e69, type: 3}
+  m_PrefabInstance: {fileID: 9052763697652214355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db28c01e8c66417d9c02a36d1e417f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &718333230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,7 +1242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: f2dd28a4344494b3289a84529f4d562d, type: 2}
-  - {fileID: 11400000, guid: c54747b3e470f41a782ab0d5466cdbe7, type: 2}
+  - {fileID: 11400000, guid: c51d366a7ce804a0986b55fa2c9ceb8d, type: 2}
+  - {fileID: 11400000, guid: a363a94a18d3b40009930fa4edd9bc69, type: 2}
   _monoInstallers:
   - {fileID: 2121707071}
   _installerPrefabs: []
@@ -1557,7 +1569,7 @@ PrefabInstance:
     - target: {fileID: 2699578255736237261, guid: f68d88c83116a48edbbe56293b6e6967, type: 3}
       propertyPath: <Value>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 467368570}
     - target: {fileID: 6687724764997051306, guid: f68d88c83116a48edbbe56293b6e6967, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.27

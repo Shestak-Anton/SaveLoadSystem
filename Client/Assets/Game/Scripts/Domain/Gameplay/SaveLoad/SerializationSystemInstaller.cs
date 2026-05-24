@@ -1,13 +1,19 @@
-using System;
+using SaveSystem;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Gameplay.SaveLoad
 {
-    [Serializable]
-    public sealed class SerializationSystemInstaller : Installer
+    [CreateAssetMenu(
+        fileName = "SerializationSystemInstaller",
+        menuName = "Zenject/New Serialization System Installer"
+    )]
+    public sealed class SerializationSystemInstaller : ScriptableObjectInstaller
     {
         public override void InstallBindings()
         {
+            Container.Bind<SaveManager>().AsSingle();
+            
             Container
                 .BindInterfacesAndSelfTo<EntitySerializer>()
                 .AsSingle();
